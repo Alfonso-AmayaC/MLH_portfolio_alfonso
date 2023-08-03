@@ -17,7 +17,7 @@
 </head>
 <body class="relative">
   <article class="md:grid md:grid-cols-12 bg-slate-100">
-    <aside class="fixed bottom-0 shadow bg-white w-full rounded-t-3xl md:col-span-2 row-start-2 md:row-auto md:max-h-screen md:sticky md:rounded-r-3xl md:top-0">
+    <aside class="fixed bottom-0 shadow bg-white w-full rounded-t-3xl md:col-span-2 row-start-2 md:row-auto md:max-h-screen md:sticky md:rounded-r-3xl md:top-0 z-10">
       <nav class="md:flex flex-col items-center justify-center h-full gap-10">
           <div class="hidden lg:block">
             <div class="flex justify-center pt-2">
@@ -41,7 +41,7 @@
           <img src="static/img/me.jpg" class="rounded-full w-1/2 h-1/2 lg:hidden"/>
         </div>
         <p class="pt-2 text-justify">Hello! I'm Alfonso Amaya and I'm a <kbd>web developer</kbd> and <kbd>electrical and electronics student</kbd> based in Mexico City. Welcome to my portfolio!</p>
-        
+        {% include "timeline.html" %}
     </main>
   </article>
 </body>
