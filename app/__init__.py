@@ -5,7 +5,6 @@ from peewee import *
 import datetime
 from playhouse.shortcuts import model_to_dict
 import re
-import requests
 
 load_dotenv()
 app = Flask(__name__)
@@ -62,7 +61,7 @@ hobbiesArray = [{
     "description": "I Like going for a run, makes me feel relax. I am planning to run a marathon.",
     "image": "static/img/running.jpeg"
 }]
-education = [
+educationArray = [
     {
         "school_name": "Monterrey Institute of Technology and Higher Education",
         "degree": "High School",
@@ -115,7 +114,7 @@ def places():
 
 @app.route('/education')
 def education():
-    return render_template('education.html', title='Education', education=education)
+    return render_template('education.html', title='Education', education=educationArray)
 
 @app.route('/experience')
 def experience():
@@ -124,6 +123,10 @@ def experience():
 @app.route('/timeline')
 def timeline():
     return render_template('timeline.html', title='')
+
+@app.route('/concept')
+def concept():
+    return render_template('concept.html', title="")
 
 # API endpoints
 @app.route('/api/timeline_post', methods=['POST'])
@@ -170,11 +173,3 @@ def delete_time_line_post():
         return {
             "message": "An error happended while deleting the instance"
         }
-
-#@app.route('/timeline')
-#def timeline():
-    #response = requests.get('http://localhost:5000/api/timeline_post')
-    #print(response.json()['timeline_post'])
-    #posts = response.json()['timeline_post']
-    
-    #return render_template('timeline.html', posts=posts)

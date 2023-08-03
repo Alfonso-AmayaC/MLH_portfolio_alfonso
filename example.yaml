@@ -1,0 +1,8 @@
+micro:
+  - app: hello
+    deploy: true
+    production: true
+education: |
+  4 GCSEs
+  3 A-Levels
+  BSc in the Internet of Things

@@ -1,0 +1,48 @@
+{% macro li(label, svg, id, href) %}
+    <li class="w-full py-3 md:pt-0" id="{{ id }}">
+        <a class="block text-center flex flex-col gap-1 items-center md:flex-row" href="{{ href }}">
+            <div class="flex justify-center">
+                <img src='static/img/svg/{{ svg }}' class="w-6 h-6" alt="{{ label }}"/>
+            </div>
+            <p class="">{{ label }}</p>
+        </a>
+    </li>
+{% endmacro %}
+<!DOCTYPE html>
+<html class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative">
+  <article class="md:grid md:grid-cols-12 bg-slate-100">
+    <aside class="fixed bottom-0 shadow bg-white w-full rounded-t-3xl md:col-span-2 row-start-2 md:row-auto md:max-h-screen md:sticky md:rounded-r-3xl md:top-0">
+      <nav class="md:flex flex-col items-center justify-center h-full gap-10">
+          <div class="hidden lg:block">
+            <div class="flex justify-center pt-2">
+              <img src="static/img/me.jpg" class="rounded-full w-1/2 h-1/2 lg:w-2/3 lg:h-2/3 border-4 border-slate-300"/>
+            </div>
+            <h1 class="font-bold text-2xl text-center">Alfonso Amaya</h1>
+          </div>
+          <ul class="grid grid-cols-6 gap-0 list-none text-xs md:gap-6 px-0.5 pb-4 md:text-sm md:grid-cols-1">
+            {{ li('About me', 'aboutme.svg', 'aboutme-item', '#aboutme') }}
+            {{ li('Work', 'work.svg', 'work-item', '#work') }}
+            {{ li('Education', 'education.svg', 'education-item', '#education') }}
+            {{ li('Hobbies', 'hobbies.svg', 'hobbies-item','#hobbies') }}
+            {{ li('Places', 'places.svg',  'places-item', '#places') }}
+            {{ li('Timeline', 'timeline.svg', 'timeline-item','#timeline') }}
+          </ul>
+      </nav>
+    </aside>
+    <main class="bg-slate-100 min-h-screen pt-10 container px-10 mx-auto lg:px-60 md:col-span-10">
+        <h2 class="text-3xl font-bold pt-5" id="aboutme">About me</h2>
+        <div class="flex justify-center pt-2">
+          <img src="static/img/me.jpg" class="rounded-full w-1/2 h-1/2 lg:hidden"/>
+        </div>
+        <p class="pt-2 text-justify">Hello! I'm Alfonso Amaya and I'm a <kbd>web developer</kbd> and <kbd>electrical and electronics student</kbd> based in Mexico City. Welcome to my portfolio!</p>
+        
+    </main>
+  </article>
+</body>
+</html>
