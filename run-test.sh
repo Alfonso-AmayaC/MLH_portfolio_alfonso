@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sh $PWD/python3-virtualenv/bin/activate -m unittest -v test/
+$PWD/python3-virtualenv/bin/python -m unittest -v test/
