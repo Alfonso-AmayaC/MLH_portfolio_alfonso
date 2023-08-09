@@ -1,23 +1,16 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="container my-4">
-        <h2>Education</h2>
-        <div class="row">
-        {% for edu in education %}
-            <div class="col-12 my-2">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ edu.school_name }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ edu.degree }} in {{ edu.field_of_study }}</h6>
-                        <p class="card-text">{{ edu.description }}</p>
-                        <p class="card-text">Grade: {{ edu.grade }}</p>
-                        <p class="card-text">{{ edu.start_year }} - {{ edu.end_year }}</p>
-                    </div>
-                </div>
+<h2 class="text-3xl font-bold pt-5" id="education">Education</h2>
+<div class="row">
+{% for edu in education %}
+    <div class="col-12 my-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ edu.school_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ edu.degree }} in {{ edu.field_of_study }}</h6>
+                <p class="card-text">{{ edu.description }}</p>
+                <p class="card-text">Grade: {{ edu.grade }}</p>
+                <p class="card-text">{{ edu.start_year }} - {{ edu.end_year }}</p>
             </div>
-        {% endfor %}
         </div>
     </div>
-
-
-{% endblock %}
+{% endfor %}
+</div>

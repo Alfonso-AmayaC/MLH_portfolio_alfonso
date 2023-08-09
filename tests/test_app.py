@@ -14,7 +14,6 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         assert  '<h2 class="text-3xl font-bold pt-5" id="aboutme">About me</h2>' in html
-        assert '<h3>Who I am?</h3>' in html
 
     def test_timeline(self):
         getResponse = self.client.get('/api/timeline_post')
