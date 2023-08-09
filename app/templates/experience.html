@@ -1,20 +1,16 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="container my-4">
-        <h2>My Work Experience</h2>
-        <div class="row">
-        {% for work in work_experience %}
-            <div class="col-12 my-2">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ work.job_title }} at {{ work.company_name }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ work.location }}</h6>
-                        <p class="card-text">{{ work.description }}</p>
-                        <p class="card-text">{{ work.start_date }} - {{ work.end_date }}</p>
-                    </div>
-                </div>
+<h2 class="text-3xl font-bold pt-5" id="work">My Work Experience</h2>
+<div class="row">
+{% for work in work_experience %}
+    <div class="col-12 my-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ work.job_title }} at {{ work.company_name }}</h5>
+                <h6 class="card-subtitle text-muted">{{ work.location }}</h6>
+                <p class="card-text">{{ work.description }}</p>
+                <p class="card-text">{{ work.start_date }} - {{ work.end_date }}</p>
             </div>
-        {% endfor %}
         </div>
     </div>
-{% endblock %}
+{% endfor %}
+</div>
+

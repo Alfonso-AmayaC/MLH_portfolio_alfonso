@@ -1,11 +1,6 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="container my-4">
-    <h2>Cool places I've been</h2>
-    <p>These are the places I've been so far, I hope to visit more soon! Europe here I come!!</p>
-    <div class="container text-center pt-3">
-        <!-- Replace the next iframe with your custom map: https://www.google.com/maps/d/u/0/?hl=es <- remove this comment  -->
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1vZ_vODJHC89tlfUcAaZ3VMp2A5dgDN4&ehbc=2E312F" width="640" height="480"></iframe>
-    </div>
+<h2 class="text-3xl font-bold pt-5" id="places">Cool places I've been</h2>
+<p>These are the places I've been so far, I hope to visit more soon! Europe here I come!!</p>
+<div class="w-full text-center pt-3">
+    <!-- Replace the next iframe with your custom map: https://www.google.com/maps/d/u/0/?hl=es <- remove this comment  -->
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1vZ_vODJHC89tlfUcAaZ3VMp2A5dgDN4&ehbc=2E312F" class="h-96 w-full"></iframe>
 </div>
-{% endblock %}
