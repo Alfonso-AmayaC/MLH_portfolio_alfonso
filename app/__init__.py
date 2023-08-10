@@ -97,7 +97,7 @@ def index():
     return render_template('index.html', title='name', work_experience=work_experience, education=educationArray, hobbies=hobbiesArray)
 
 # API endpoints
-@app.route('/api/timeline_post', methods=['POST'])
+@app.route('/api/timeline_post/add', methods=['POST'])
 def post_time_line_post():
     name = request.form.get('name')
     email = request.form.get('email')
