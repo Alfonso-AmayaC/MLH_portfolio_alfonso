@@ -1,14 +1,8 @@
 <h2 class="text-3xl font-bold pt-5" id="hobbies">Hobbies</h2>
-<div class="row">
+<div class="flex flex-row flex-wrap w-full gap-3 pt-5">
 {% for hobby in hobbies %}
-    <div class="col-sm-12 col-md-6 col-lg-4 my-2">
-        <div class="">
-            <img class="card-img-top" src="{{ hobby.image }}" alt="{{ hobby.name }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ hobby.name }}</h5>
-                <p class="card-text">{{ hobby.description }}</p>
-            </div>
-        </div>
+    <div class="bg-white rounded-xl shadow-lg shadow-sky-200/20 hover:bg-sky-200 py-3 px-4 grow duration-500">
+        {{ hobby.name }}
     </div>
 {% endfor %}
 </div>

@@ -45,46 +45,38 @@ print(mydb)
 mydb.create_tables([TimelinePost])
 
 hobbiesArray = [{
-    "name": "Coding",
-    "description": "I like coding and learning new things. I am currently learning how to use Flask and about deploying microservices.",
-    "image": "static/img/coding.jpeg"
+    "name": "Coding"
 },{
-    "name": "Reading",
-    "description": "I love reading books. I am currently reading 'The 7 Habits of Highly Effective People' by Stephen Covey.",
-    "image": "static/img/reading.webp"
+    "name": "Hang out with my family and friends"
 },{
-    "name": "Movies",
-    "description": "I watch a lot of movies with my family. My favorite movies are the Indiana Jones series.",
-    "image": "static/img/movies.jpeg"
+    "name": "Reading"
 },{
-    "name": "Running",
-    "description": "I Like going for a run, makes me feel relax. I am planning to run a marathon.",
-    "image": "static/img/running.jpeg"
-}]
+    "name": "Movies"
+},{
+    "name": "Excercise"
+},{
+    "name": "Watching the sky"
+},{
+    "name": "Playing the guitar"
+},{
+    "name": "Music"
+}
+]
 educationArray = [
     {
-        "school_name": "Monterrey Institute of Technology and Higher Education",
-        "degree": "High School",
-        "field_of_study": "",
-        "start_year": "2017",
-        "end_year": "2020",
-        "grade": "90",
-        "description": "Completed with honors."
-    },
-    {
-        "school_name": "Monterrey Institute of Technology and Higher Education",
-        "degree": "Bachelor's Degree",
-        "field_of_study": "Computer Science",
-        "start_year": "2020",
-        "end_year": "2025",
-        "grade": "92",
-        "description": "Especializing in Software Engineering."
+        "school_name": "Universidad Nacional Autónoma de México",
+        "degree": "Electrical and electronics",
+        "field_of_study": "audio",
+        "start_year": "2019",
+        "end_year": "2024",
+        "description": "Minor in audio",
+        "image": "../static/img/unam.jpeg"
     }
 ]
 work_experience = [
     {
         "job_title": "Frontend developer",
-        "company_name": "Roatech Services",
+        "company_name": "Roatech",
         "start_date": "May 2022",
         "end_date": "June 2023",
         "location": "Mexico City, Mexico",
