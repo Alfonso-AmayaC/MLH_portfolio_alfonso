@@ -18,7 +18,6 @@ const classes = ['border-b-4', 'border-sky-300'];
 
 const updateMenu = () => {
     const topPosition = parseInt(scrollY);
-    console.log(topPosition);
 
     if (topPosition >= 0 && ( topPosition > aboutmePosition && topPosition < workPosition))
         updateElement(navbar.children[0]);
