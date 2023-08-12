@@ -1,9 +1,6 @@
 name: Deploy
 
 on:
-    # push:
-    #     branches:
-    #         - main
     workflow_dispatch:
     workflow_run:
         workflows: ['Run Tests']
@@ -13,11 +10,33 @@ jobs:
     on-success:
         name: "Deploy on VPS"
         runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         steps:
-          - run: echo "Test workflow finished successfully"
+          - name: Configure SSH
+            run: |
+              mkdir -p ~/.ssh/
+              echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy-key.pem
+              chmod 600 ~/.ssh/deploy-key.pem
+              cat >> ~/.ssh/config <<END
+              Host my-vps
+                  HostName $SSH_IP
+                  User $SSH_USER
+                  IdentityFile ~/.ssh/deploy-key.pem
+                  StrictHostKeyChecking no
+              END
+            env:
+              SSH_USER: ${{ secrets.SSH_USER }}
+              SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+              SSH_IP: ${{ secrets.SSH_IP }}
+
+          - name: Deploy site
+            run: | 
+              ssh my-vps './redeploy-site.sh'
+              curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
     
     on-failure:
-        name: "Let see if this runs"
+        name: "Send a message to Discord"
         runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
         steps:
-          - run : echo "This should print even if the workflow didn't failed"
+          - run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=The deployment of the portfolio failed - bruh"
