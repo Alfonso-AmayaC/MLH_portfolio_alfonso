@@ -33,6 +33,7 @@ jobs:
             run: | 
               ssh my-vps './redeploy-site.sh'
               curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
+              docker-compose ps     
     
     on-failure:
         name: "Tests failed - report that through Discord"
