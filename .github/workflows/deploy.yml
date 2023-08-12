@@ -39,4 +39,4 @@ jobs:
         runs-on: ubuntu-latest
         if: ${{ github.event.workflow_run.conclusion == 'failure' }}
         steps:
-          - run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=The deployment of the portfolio failed - bruh"
+          - run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=The deployment of the portfolio failed"
