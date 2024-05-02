@@ -8,14 +8,7 @@ import re
 
 load_dotenv()
 app = Flask(__name__)
-
-mydb = MySQLDatabase(
-            os.getenv('MYSQL_DATABASE'), 
-            user=os.getenv('MYSQL_USER'), 
-            password=os.getenv('MYSQL_PASSWORD'), 
-            host=os.getenv('MYSQL_HOST'), 
-            port=3306
-)
+i = 0
 
 if os.getenv("TESTING") == "true":
     print("Running in test mode")
@@ -28,8 +21,9 @@ else:
             host=os.getenv('MYSQL_HOST'), 
             port=3306
         )
-    
-print(mydb)
+
+i += 1   
+print(mydb, f"Iteration #{i}")
 
 
 class TimelinePost(Model):
@@ -41,7 +35,8 @@ class TimelinePost(Model):
         database = mydb
 
 mydb.connect()
-print(mydb)
+i += 1 
+print(mydb, f"Iteration #{i}")
 mydb.create_tables([TimelinePost])
 
 hobbiesArray = [{
